@@ -1,63 +1,475 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>บุญช่วย ไชยเกตุ | Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>บุญช่วย ไชยเกตุ — Portfolio & Projects</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN (v2 safe build) -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a2e0e9a72f.js" crossorigin="anonymous"></script>
+
+  <style>
+    body { font-family: 'Prompt', 'Poppins', sans-serif; scroll-behavior: smooth; }
+    .gradient-bg { background: linear-gradient(135deg,#0f172a,#1e3a8a); }
+    .card { transition: transform .25s ease, box-shadow .25s ease; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(2,6,23,0.2); }
+    .tag { font-size: .75rem; padding: .25rem .5rem; border-radius: .375rem; }
+    .project-card { border-left: 4px solid #3b82f6; }
+    @media (min-width:1024px) {
+      .container-lg { max-width: 1100px; }
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-blue-900 to-blue-600 text-white p-6">
-    <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeInDown">บุญช่วย ไชยเกตุ</h1>
-    <h2 class="text-xl md:text-2xl mb-6 animate__animated animate__fadeInUp">Backend Developer with 13 years of experience in government IT systems</h2>
-    <a href="#about" class="mt-4 bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-100 transition-all animate__animated animate__fadeInUp animate__delay-1s">ดูประวัติของฉัน</a>
-  </section>
+  <!-- Header / Hero -->
+  <header class="gradient-bg text-white py-20">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-3">บุญช่วย ไชยเกตุ</h1>
+      <p class="text-lg md:text-xl mb-6">Backend Developer • Lead Backend & System Integrator — ประสบการณ์ด้านระบบสารสนเทศภาครัฐกว่า 13 ปี</p>
+      <div class="flex justify-center space-x-4">
+        <a href="#projects" class="bg-white text-blue-700 px-5 py-3 rounded-xl font-semibold shadow hover:scale-105 transition">ดูผลงานทั้งหมด</a>
+        <a href="#contact" class="border border-white px-5 py-3 rounded-xl hover:bg-white hover:text-blue-700 transition">ติดต่อ</a>
+      </div>
+    </div>
+  </header>
 
-  <!-- About Section -->
-  <section id="about" class="max-w-4xl mx-auto px-6 py-16">
-    <h3 class="text-3xl font-bold mb-4 text-blue-700 animate__animated animate__fadeInLeft">เกี่ยวกับฉัน</h3>
-    <p class="leading-relaxed mb-4 animate__animated animate__fadeInUp">
-      สวัสดีครับ ผมชื่อ <strong>บุญช่วย ไชยเกตุ</strong> ปัจจุบันทำงานเป็นโปรแกรมเมอร์อยู่ที่กรุงเทพฯ มีประสบการณ์ด้านระบบสารสนเทศภาครัฐมากกว่า 13 ปี 
-      เชี่ยวชาญด้านการพัฒนา Backend API ด้วยภาษา <strong>ASP.NET Core (C#)</strong> รวมถึงการเชื่อมต่อระบบ Web Service, MassTransit และ CI/CD Automation
-    </p>
-    <p class="animate__animated animate__fadeInUp animate__delay-1s">
-      🎓 จบการศึกษาจาก <strong>คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยธุรกิจบัณฑิตย์</strong>
-    </p>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" class="bg-gray-100 py-16 px-6">
-    <div class="max-w-5xl mx-auto">
-      <h3 class="text-3xl font-bold text-blue-700 mb-8 text-center animate__animated animate__fadeInDown">ประสบการณ์ทำงาน</h3>
-
-      <div class="space-y-6">
-        <div class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition-all animate__animated animate__fadeInUp">
-          <h4 class="text-xl font-semibold">Lead Backend Developer</h4>
-          <p class="text-gray-500 text-sm mb-2">หน่วยงานราชการไทย | 2012 - ปัจจุบัน</p>
-          <p>พัฒนาระบบสารสนเทศภาครัฐมากกว่า 20 ระบบ ครอบคลุม 5 กระทรวงหลัก เช่น กระทรวงแรงงาน, กระทรวงพม., สปสช., และกรมทรัพย์สินทางปัญญา โดยใช้ ASP.NET Core, Web API, MassTransit, RabbitMQ</p>
-        </div>
+  <!-- About -->
+  <section id="about" class="py-14">
+    <div class="container-lg mx-auto px-6">
+      <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12" data-aos="fade-up">
+        <h2 class="text-2xl font-bold text-blue-800 mb-4">เกี่ยวกับฉัน</h2>
+        <p class="leading-relaxed mb-3">
+          สวัสดีครับ ผมชื่อ <strong>บุญช่วย ไชยเกตุ</strong> ทำงานเป็นโปรแกรมเมอร์/Lead Backend Developer ในกรุงเทพฯ
+          มีประสบการณ์ด้านระบบสารสนเทศภาครัฐมากกว่า 13 ปี เคยพัฒนาและบำรุงรักษาระบบมากกว่า 20 โครงการครอบคลุมหลายกระทรวง
+        </p>
+        <p class="leading-relaxed">
+          เทคโนโลยีที่เชี่ยวชาญ: <strong>ASP.NET Core (C#), Web API, MassTransit, RabbitMQ, MSSQL, Oracle, PHP, MySQL, CI/CD (GitHub Actions), Docker, IIS</strong>.
+        </p>
+        <p class="mt-4 text-sm text-gray-600">การศึกษา: คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยธุรกิจบัณฑิตย์</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-blue-900 text-white text-center">
-    <h3 class="text-3xl font-bold mb-6 animate__animated animate__fadeInDown">ติดต่อฉัน</h3>
-    <p class="mb-6 animate__animated animate__fadeInUp">ยินดีร่วมงานหรือพูดคุยแลกเปลี่ยนความรู้ได้เสมอครับ 😊</p>
-
-    <div class="space-x-6 text-2xl animate__animated animate__fadeInUp animate__delay-1s">
-      <a href="mailto:it.pakdpu@gmail.com" class="hover:text-yellow-300"><i class="fas fa-envelope"></i></a>
-      <a href="#" class="hover:text-yellow-300"><i class="fab fa-facebook"></i></a>
-      <a href="#" class="hover:text-yellow-300"><i class="fab fa-github"></i></a>
+  <!-- Experience summary -->
+  <section id="experience" class="py-12 bg-gray-100">
+    <div class="container-lg mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+        <h3 class="text-2xl font-bold text-blue-800" data-aos="fade-right">สรุปประสบการณ์</h3>
+        <p class="mt-3 md:mt-0 text-gray-700" data-aos="fade-left">Lead Backend Developer, System Integrator, CI/CD Engineer — พัฒนาระบบให้หน่วยงานระดับกระทรวง และองค์กรรัฐจำนวนมาก</p>
+      </div>
     </div>
   </section>
 
-  <footer class="text-center text-gray-500 text-sm py-4 bg-gray-100">
-    © 2025 บุญช่วย ไชยเกตุ — All rights reserved.
-  </footer>
+  <!-- Projects (30 items) -->
+  <section id="projects" class="py-12">
+    <div class="container-lg mx-auto px-6">
+      <h3 class="text-3xl font-bold text-blue-800 mb-8 text-center" data-aos="fade-up">ผลงานโครงการ (ทั้งหมด)</h3>
+
+      <div class="grid gap-6">
+        <!-- Project 1 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">1. ปรับปรุงและบำรุงรักษาระบบสารสนเทศภายใน สำนักงานกิจการสตรี และสถาบันครอบครัว (e-Office)</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2557 • งบประมาณ 2,220,000 บาท</p>
+            </div>
+            <div class="text-right">
+              <span class="tag bg-blue-50 text-blue-700">Role: บำรุงรักษา & พัฒนาโมดูล</span>
+            </div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: บำรุงรักษาและพัฒนาโมดูลระบบภายในที่พัฒนาจาก CMS หลายตัว เช่น อินทราเน็ต, ระบบข้อมูลกลุ่ม, ระบบรายงานสถานการณ์ความรุนแรงในครอบครัว, E-learning (Moodle). พัฒนาโดย PHP / MySQL.</p>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="50">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">2. จัดหาครุภัณฑ์และติดตั้งระบบศูนย์ปฏิบัติการ สค. (War Room) ณ กรมกิจการสตรี</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2558 • งบประมาณ 9,970,000 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: พัฒนาระบบรายงาน & Data Warehouse</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนาระบบรายงานสถานการณ์ด้านสตรีและครอบครัว โดยเชื่อมโยงข้อมูลจากหลายระบบ (DB, Web service) เข้าสู่ Data Warehouse และแสดงผลด้วย BI Dashboard (Chart + GIS).</p>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">3. พัฒนาระบบบัญชีกองทุนส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2559 • งบประมาณ 4,950,000 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: พัฒนาระบบ (C#, ASP.NET, MS-SQL)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนาระบบบัญชีสำหรับทั้งส่วนกลางและภูมิภาค เชื่อมโยงผ่าน Web Service / C# Web API บน MS-SQL.</p>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">4. ดูแลและบำรุงรักษาระบบเว็บไซต์ของกรมกิจการสตรีและสถาบันครอบครัว</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2559 • งบประมาณ 720,000 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: บำรุงรักษา (C# ASP.NET, MS-SQL)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: บำรุงรักษาเว็บไซต์ต่างๆ ของกรม พัฒนาและแก้ไขด้วย C# ASP.NET บน MS-SQL.</p>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">5. จ้างเหมาดูแลและบำรุงรักษาระบบสารสนเทศของ สค. (กรมกิจการสตรี)</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2560 • งบประมาณ 799,600 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: บำรุงรักษา & พัฒนา (PHP & C#)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: บำรุงรักษาระบบอินทราเน็ต, ระบบรายงานสถานการณ์ความรุนแรง, E-learning — พัฒนาโดย PHP และ C# ASP.NET บน MS-SQL และ Oracle.</p>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">6. พัฒนาระบบการเงินกองทุนคนพิการ (กรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ)</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2560 • งบประมาณ 7,300,000 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: พัฒนาระบบการเงิน (C#, ASP.NET)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนาระบบการเงินกองทุนใช้งานทั้งส่วนกลางและภูมิภาค เชื่อมโยงผ่าน Web Service บน MS-SQL.</p>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">7. จ้างเหมาเอกชน ดูแลบำรุงรักษา พัฒนา ซ่อมแซมครุภัณฑ์และระบบ (กรมพัฒนาและส่งเสริมคุณภาพชีวิตคนพิการ)</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2560 • งบประมาณ 5,500,000 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: บำรุงรักษา & พัฒนา (C#, Web API)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: ดูแลระบบออกบัตรคนพิการ, ระบบรายงาน และฮาร์ดแวร์ เชื่อมโยงข้อมูลผ่าน Web service (C# Web API) บน MS-SQL.</p>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="350">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">8. พัฒนาระบบ MIS กองกองทุนและส่งเสริมความเสมอภาคคนพิการ</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2560 • งบประมาณ 6,760,000 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: Data Warehouse & BI Integration</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: เชื่อมโยงข้อมูลจากระบบงาน ผ่าน DB และ Web service เข้าสู่ Data Warehouse เพื่อวิเคราะห์และแสดงผลด้วย BI (Chart & GIS Dashboard).</p>
+        </div>
+
+        <!-- Project 9 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">9. บำรุงรักษาระบบงานกองทุนส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2560 • งบประมาณ 11,000,000 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: Maintenance (ระบบบัญชี)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: บำรุงรักษาระบบบัญชีของกองทุนฯ</p>
+        </div>
+
+        <!-- Project 10 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="450">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">10. ปรับปรุงฐานข้อมูลทะเบียนกลางคนพิการ เพื่อรองรับการบูรณาการฐานข้อมูลประชาชน</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2560</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: DB Integration</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: ปรับปรุงฐานข้อมูลทะเบียนกลางเพื่อรองรับการบูรณาการ</p>
+        </div>
+
+        <!-- Project 11 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">11. พัฒนาเว็บไซต์และระบบงานเทคโนโลยีสารสนเทศกรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2561 • งบประมาณ 5,420,000 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: บำรุงรักษา & พัฒนา (PHP, Oracle)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: บำรุงรักษาและพัฒนาเว็บไซต์ (PHP, Bootstrap) และระบบสารสนเทศภายในบนฐานข้อมูล Oracle.</p>
+        </div>
+
+        <!-- Project 12 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="550">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">12. บริหารจัดการระบบสารสนเทศศูนย์ข้อมูลแรงงานแห่งชาติ (สำนักงานปลัดกระทรวงแรงงาน)</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2562 • งบประมาณ 12,500,000 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: ระบบแลกเปลี่ยนข้อมูล (C# Web API, Oracle)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนาระบบแลกเปลี่ยนข้อมูลข้ามกระทรวง โดยใช้ C# Web API และฐานข้อมูล Oracle.</p>
+        </div>
+
+        <!-- Project 13 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">13. บริหารจัดการระบบสารสนเทศศูนย์ข้อมูลแรงงานแห่งชาติ (ต่อ) — ไตรมาส ต.ค.2562–ธ.ค.2562</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2563 • งบประมาณ 3,300,000 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: Maintenance & Development</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: งานต่อเนื่องสำหรับศูนย์ข้อมูลแรงงานแห่งชาติ</p>
+        </div>
+
+        <!-- Project 14 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="650">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">14. พัฒนาระบบบริหารจัดการคอมพิวเตอร์ (Computer System Management) สำหรับจำหน่ายให้หน่วยงานรัฐ/เอกชน</h4>
+              <p class="text-sm text-gray-500">ระยะเวลา: 1 ต.ค. 2562 – ปัจจุบัน</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: พัฒนา (C# .NET Core MVC, MSSQL)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนาระบบขาย/ให้บริการองค์กร โดยใช้ .NET Core MVC, MSSQL, jQuery, Bootstrap, JS.</p>
+        </div>
+
+        <!-- Project 15 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="700">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">15. ระบบตรวจสอบค่าไฟฟ้า สวัสดิการสัมปทานกองทัพเรือ</h4>
+              <p class="text-sm text-gray-500">ระยะพัฒนา: 21–30 มิ.ย. 2564</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: พัฒนา (C# .NET Core MVC)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนา Web application; ผลงานตัวอย่าง: https://mobile.sea.co.th</p>
+        </div>
+
+        <!-- Project 16 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="750">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">16. ระบบเว็บไซต์ศูนย์ประสานงานโครงการอันเนื่องมาจากพระราชดำริและความมั่นคง (ศปร.)</h4>
+              <p class="text-sm text-gray-500">ระยะพัฒนา: 1–15 มิ.ย. 2564 • งบประมาณ 1,000,000 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: พัฒนา (C# .NET Core MVC)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนาเว็บไซต์และระบบงานภายใน ด้วย .NET Core MVC, MSSQL, jQuery, Bootstrap.</p>
+        </div>
+
+        <!-- Project 17 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="800">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">17. ระบบรายงานผลการตรวจ COVID-19 (NHSO)</h4>
+              <p class="text-sm text-gray-500">ระยะพัฒนา: 15–16 ก.ค. 2564 • งบประมาณ 100,000 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: พัฒนา (C# .NET Core MVC)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: ระบบรายงานผลการตรวจ COVID-19 — ตัวอย่าง URL: http://nhso.azurewebsites.net</p>
+        </div>
+
+        <!-- Project 18 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="850">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">18. ระบบเชื่อมต่อ Face Recognition สำหรับ CCTV & Face Panel (ศูนย์เอนเนอร์ยี่คอมเพล็กซ์)</h4>
+              <p class="text-sm text-gray-500">ระยะโครงการ: 23 ส.ค. 2564 – 16 ธ.ค. 2564</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: พัฒนา (C# Windows App & C# Web API)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนา Windows Application และรับข้อมูลจาก Middleware ผ่าน RESTful API (C# Web API).</p>
+        </div>
+
+        <!-- Project 19 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="900">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">19. ระบบวิเคราะห์ข้อมูลรายงานและเรียนรู้ความเสี่ยงทางคลินิก (NRLS)</h4>
+              <p class="text-sm text-gray-500">ไม่ระบุปี</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: พัฒนา (C# .NET Core MVC)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนาระบบ NRLS สำหรับรายงานและวิเคราะห์เหตุการณ์ไม่พึงประสงค์ระดับประเทศ (Backend & Reporting).</p>
+        </div>
+
+        <!-- Project 20 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="950">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">20. พัฒนาศูนย์บริการและการบริหารงาน การปลูกข้าวความแม่นยำสูงของนาแปลงใหญ่ต้นแบบ</h4>
+              <p class="text-sm text-gray-500">ไม่ระบุปี • งบประมาณ 15,000,000 บาท</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: พัฒนา (C# .NET Core MVC)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนาเว็บไซต์และระบบบริหารสำหรับโครงการนาแปลงใหญ่ ตลอดกระบวนการ (Frontend & Backend).</p>
+        </div>
+
+        <!-- Project 21 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="1000">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">21. ระบบโปรแกรมบันทึกและประมวลผลข้อมูลความจำเป็นพื้นฐาน (จปฐ.) และข้อมูลพื้นฐานระดับหมู่บ้าน (กชช.2ค)</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2564 • เทคโนโลยี: C# Windows App, SQL Server</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: พัฒนา Desktop App</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนาระบบบันทึกและประมวลผลข้อมูล จปฐ. สำหรับปี 2564</p>
+        </div>
+
+        <!-- Project 22 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="1050">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">22. ระบบโปรแกรมบันทึกและประมวลผลข้อมูลความจำเป็นพื้นฐาน (จปฐ.) / กชช.2ค (ปี 2565)</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2565 • เทคโนโลยี: C# Windows App, SQL Server</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: พัฒนา & บำรุงรักษา</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: งานต่อเนื่องของระบบ จปฐ. สำหรับปี 2565</p>
+        </div>
+
+        <!-- Project 23 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="1100">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">23. ระบบโปรแกรมบันทึกและประมวลผลข้อมูลความจำเป็นพื้นฐาน (จปฐ.) — Web API (ปี 2566)</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2566 • เทคโนโลยี: Web API (C# Backend)</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: เขียน API รองรับ Web/Mobile</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนา Backend API เพื่อรองรับ Frontend Web และ Mobile Application สำหรับปี 2566</p>
+        </div>
+
+        <!-- Project 24 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="1150">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">24. ระบบกองทุนหมู่บ้าน (ก.ท.บ.)</h4>
+              <p class="text-sm text-gray-500">ปีงบประมาณ 2566 • เทคโนโลยี: C# .NET Core MVC, MSSQL</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: พัฒนา (Web Application)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนาระบบบริหารกองทุนหมู่บ้านด้วย .NET Core MVC</p>
+        </div>
+
+        <!-- Project 25 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="1200">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">25. พัฒนาระบบบริหารรวมศูนย์ กรมทรัพย์สินทางปัญญา</h4>
+              <p class="text-sm text-gray-500">ไม่ระบุปี • เทคโนโลยี: Asp.net Core Web API</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: Backend API (User/Role/Menu Management)</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: รับผิดชอบ Backend API ตั้งต้นระบบ จัดทำ User Management, Menu Management, Role Management และจัดสภาพแวดล้อมสำหรับ Prod/UAT/SIT ด้วย .NET Core & EF.</p>
+        </div>
+
+        <!-- Project 26 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="1250">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">26. ดูแลบำรุงรักษาฝ่ายกองทุนของบริษัท — Lead Programmer</h4>
+              <p class="text-sm text-gray-500">ไม่ระบุปี • เทคโนโลยี: Asp.net Core Web API, Payment, Quartz, RabbitMQ, MassTransit</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: Lead Programmer & Maintenance</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: ดูแลระบบกองทุนของบริษัท พัฒนาด้วย .NET Core Web API ใช้งาน Payment transfer, Option Patterns, Quartz Job Schedule, AutoMapper, RabbitMQ, MassTransit.</p>
+        </div>
+
+        <!-- Project 27 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="1300">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">27. ระบบพัฒนา/บำรุงรักษาเว็บไซต์และระบบงานด้วย PHP / Bootstrap / Oracle</h4>
+              <p class="text-sm text-gray-500">หลากหลายโครงการ • เน้นเว็บไซต์ของหน่วยงานรัฐ</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: Web Dev & Maintenance</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: พัฒนาเว็บไซต์ด้วย PHP, Bootstrap และเชื่อมต่อกับ Oracle / MS-SQL ในหลายโครงการของหน่วยงานรัฐ.</p>
+        </div>
+
+        <!-- Project 28 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="1350">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">28. งานเชื่อมโยงข้อมูล, Web Service Integration และ Data Warehouse สำหรับโครงการต่าง ๆ</h4>
+              <p class="text-sm text-gray-500">หลายโครงการ • BI & GIS Dashboard</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: Integration & BI</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: ออกแบบเชื่อมต่อข้อมูลผ่าน Web Service / DB ไปยัง Data Warehouse และแสดงผลด้วย BI (Chart/Map) เพื่อการวิเคราะห์เชิงพื้นที่และสถิติ.</p>
+        </div>
+
+        <!-- Project 29 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="1400">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">29. งาน CI/CD, GitHub Actions และการจัดการ Deploy / Environment</h4>
+              <p class="text-sm text-gray-500">หลายโครงการ • DevOps</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: CI/CD & DevOps</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: ออกแบบ Pipeline, เขียน GitHub Actions, ตั้งค่า Environment (Prod/UAT/SIT), ดูแลการ Deploy (IIS / Docker) และ Automation Tests.</p>
+        </div>
+
+        <!-- Project 30 -->
+        <div class="bg-white rounded-xl p-6 shadow card project-card" data-aos="fade-up" data-aos-delay="1450">
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-xl font-semibold">30. งานออกแบบสถาปัตยกรรมระบบ, Payment Integration และ Message Queue</h4>
+              <p class="text-sm text-gray-500">หลายโครงการ</p>
+            </div>
+            <div><span class="tag bg-blue-50 text-blue-700">Role: System Architecture & Integration</span></div>
+          </div>
+          <p class="mt-3 text-gray-700">รายละเอียด: วางสถาปัตยกรรมระบบ Backend, ออกแบบ Integration กับระบบ Payment, ใช้ Message Queue (RabbitMQ, MassTransit) สำหรับกระบวนการแบบ Asynchronous และ High-throughput.</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-10 text-center" data-aos="fade-up" data-aos-delay="1500">
+        <a href="#contact" class="inline-block bg-blue-700 text-white px-6 py-3 rounded-xl shadow hover:scale-105 transition">ติดต่อเพื่อขอรายละเอียดโครงการเพิ่มเติม</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-14 bg-blue-900 text-white">
+    <div class="container-lg mx-auto px-6 text-center">
+      <h3 class="text-2xl font-bold mb-4" data-aos="fade-up">ติดต่อฉัน</h3>
+      <p class="mb-4" data-aos="fade-up" data-aos-delay="50">ยินดีรับงานสารสนเทศภาครัฐ เอกชน หรือร่วมเป็นที่ปรึกษาด้าน API, Integration, CI/CD</p>
+      <div class="flex items-center justify-center space-x-6" data-aos="fade-up" data-aos-delay="100">
+        <a href="mailto:it.pakdpu@gmail.com" class="inline-flex items-center space-x-2 bg-white text-blue-800 px-4 py-2 rounded-lg shadow hover:scale-105 transition">
+          <i class="fas fa-envelope"></i><span>it.pakdpu@gmail.com</span>
+        </a>
+        <!-- Placeholder links (fill if you want) -->
+        <a href="#" class="inline-flex items-center space-x-2 bg-white text-blue-800 px-4 py-2 rounded-lg shadow hover:scale-105 transition">
+          <i class="fab fa-github"></i><span>GitHub</span>
+        </a>
+        <a href="#" class="inline-flex items-center space-x-2 bg-white text-blue-800 px-4 py-2 rounded-lg shadow hover:scale-105 transition">
+          <i class="fab fa-facebook"></i><span>Facebook</span>
+        </a>
+      </div>
+      <p class="mt-6 text-sm text-blue-200" data-aos="fade-up" data-aos-delay="150">© 2025 บุญช่วย ไชยเกตุ — All rights reserved.</p>
+    </div>
+  </section>
+
+  <script>
+    AOS.init({ duration: 700, once: true, offset: 80 });
+  </script>
 </body>
 </html>
